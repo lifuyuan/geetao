@@ -1,0 +1,4 @@
+<% unless @comment.errors.any? %>
+$('#comments').append("<%= j render @comment %>");
+<% end %>
+$('#new_comment textarea').val("");

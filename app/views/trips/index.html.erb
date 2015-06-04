@@ -1,0 +1,29 @@
+<h4>代购行程</h4>
+<% if @trips.count > 0 %>
+
+  <% i = 0 %>
+  <% @trips.each do |trip| %>
+  <% if i!=@trips.count && i%4 == 0 %>
+      <div class="row demo-tiles">
+    <% end %>
+      <div class="col-xs-3">
+        <div class="tile">
+          <%= image_tag "icons/png/Map.png" %>
+          <h4><%= "#{dest_state_desc(trip.dest_state)}" %></h4>
+          <p>回国时间：<%= trip.return_date %></p>
+          <p>行程描述：<%= trip.description %></p>
+          <%= link_to '查看', trip, class: "btn btn-primary", style: "width: 230px;" %>
+        </div>
+      </div>
+    <% if i%4 == 3 || i == @trips.count-1 %>
+      </div>
+    <% end %>
+    <% i = i + 1 %>
+  <% end %>
+
+<% else %>
+
+  <p>还未创建行程</p>
+
+<% end %>
+

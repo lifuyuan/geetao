@@ -1,0 +1,79 @@
+
+<%= form_for(@trip, :html => { :multipart => true }) do |f| %>
+<div class="row">
+  <% if @trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+      <% @trip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= f.label :行程名称 %><br>
+    <%= f.text_field :trip_name, class: "form-control" %>
+  </div>
+  <div class="row">
+    <%= f.label :行程描述 %><br>
+    <%= f.text_area :trip_desc, class: "form-control", placeholder: "例如：经过哪些城市等" %>
+  </div>
+  <div class="row">
+    <%= f.label :出发日期 %><br>
+    <%= f.text_field :departure_date, class: "form-control" %>
+  </div>
+  <div class="row">
+    <%= f.label :返回日期 %><br>
+    <%= f.text_field :return_date, class: "form-control" %>
+  </div>
+  <div class="row">
+    <%= f.label :下单截止日期 %><br>
+    <%= f.text_field :expiration_date, class: "form-control" %>
+  </div>
+  <%= f.fields_for :pictures do |image| %>
+    <% if image.object.new_record? %>
+      <div class="row">
+        <%= image.label :图片 %><br>
+        <%= image.file_field :attachment, class: "form-control" %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="row">
+    <%= f.submit '发布', class: "btn btn-block btn-primary" %>
+  </div>
+</div>
+<% end %>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  jQuery(function(){
+    jQuery("#trip_trip_name").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请选择国家"
+    });
+    jQuery("#trip_trip_desc").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请填写回国日期"
+    });
+    jQuery("#trip_departure_date").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入代购商品单价"
+    });
+    jQuery("#trip_return_date").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入代购商品单价"
+    });
+    jQuery("#trip_expiration_date").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入代购商品单价"
+    });
+    jQuery("#trip_pictures_attributes_0_attachment").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入代购商品单价"
+    });
+  });
+  /* ]]> */
+</script>

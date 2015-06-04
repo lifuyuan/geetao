@@ -1,0 +1,29 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="login">
+        <div class="login-screen">
+          <div class="login-icon">
+            <%= image_tag "login/icon.png"%>
+            <h4><small>忘记密码</small></h4>
+          </div>
+
+          <div class="login-form">
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control login-field", placeholder: "电子邮箱" %>
+              <label class="login-field-icon fui-mail" for="user_email"></label>
+            </div>
+            <%= f.submit "发送发送重置密码邮件", class: "btn btn-primary btn-lg btn-block" %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+<% end %>
+<script type="text/javascript">
+  /* <![CDATA[ */
+  jQuery(function(){
+    jQuery("#user_email").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入您的email地址"
+    });
+  });
+  /* ]]> */
+</script>

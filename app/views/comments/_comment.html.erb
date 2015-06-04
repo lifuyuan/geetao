@@ -1,0 +1,15 @@
+<%= div_for comment do %>
+<div class="list-group">
+  <div class="row comment-content">
+    <div class="list-group-item">
+      <span class="fui-user" data-placement="bottom" data-toggle="tooltip" ><%=comment.user.name %></span>
+      <p class="list-group-item-text"><%= comment.content %></p>
+    </div>
+  </div>
+  <% if comment.user == current_user%>
+  <div class="row commment-action">
+    <%= link_to '删除', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "like" %>
+  </div>
+  <% end %>
+</div>
+<% end %>

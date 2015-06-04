@@ -1,0 +1,97 @@
+<%= form_for([@trip, @product]) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= f.label :产品名称 %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="row">
+    <%= f.label :品牌 %><br>
+    <%= f.text_area :brand, class: "form-control", placeholder: "例如：Iphone" %>
+  </div>
+  <div class="row">
+    <%= f.label :预计单价 %><br>
+    <%= f.text_field :price, class: "form-control" %>
+  </div>
+  <div class="row">
+    <%= f.label :颜色 %><br>
+    <%= f.text_field :color, class: "form-control" %>
+  </div>
+  <div class="row">
+    <%= f.label :商品尺寸，规格及大小 %><br>
+    <%= f.text_field :size, class: "form-control" %>
+  </div>
+  <%= f.fields_for :pictures do |image| %>
+    <% if image.object.new_record? %>
+      <div class="row">
+        <%= image.label :图片 %><br>
+        <%= image.file_field :attachment, class: "form-control" %>
+      </div>
+    <% end %>
+  <% end %>
+  <br/>
+  <%= f.fields_for :purchasings do |purchasing| %>
+    <div class="row">
+      <%= purchasing.label :期望到货时间 %><br>
+      <%= purchasing.text_field :expect_time_start, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= purchasing.label :期望到货时间 %><br>
+      <%= purchasing.text_field :expect_time_end, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= purchasing.label :酬金 %><br>
+      <%= purchasing.text_field :remuneration, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= purchasing.label :备注 %><br>
+      <%= purchasing.text_field :memo, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= purchasing.label :数量 %><br>
+      <%= purchasing.text_field :quantity, class: "form-control" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  jQuery(function(){
+    jQuery("#product_name").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请选择国家"
+    });
+    jQuery("#product_brand").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请填写回国日期"
+    });
+    jQuery("#product_price").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入代购商品单价"
+    });
+    jQuery("#product_size").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入代购商品单价"
+    });
+    jQuery("#product_pictures_attributes_0_attachment").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入代购商品单价"
+    });
+  });
+  /* ]]> */
+</script>

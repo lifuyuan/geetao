@@ -1,0 +1,48 @@
+<script>
+			jQuery(document).ready(function($){
+
+				$('#etalage').etalage({
+					thumb_image_width: 300,
+					thumb_image_height: 300,
+					source_image_width: 600,
+					source_image_height: 600,
+					show_hint: false
+				});
+
+			});
+
+			$(function () {
+      // Slideshow 1
+      $("#slider2").responsiveSlides({
+         auto: true,
+		 nav: true,
+		 speed: 500,
+		 namespace: "callbacks",
+      });
+    });
+		</script>
+
+
+						
+
+
+
+				<div class="slider2">
+				<ul class="rslides rslider" id="slider2">		
+					<% @trip.pictures.each do |picture| %>		  
+				  	<li><%= image_tag picture.attachment.url(:large) %></li>
+				  <% end %>
+				</ul>
+		   </div>
+
+		   <ul id="etalage">
+						  <% @trip.pictures.each do |picture| %>
+							<li>
+								<%= image_tag picture.attachment.url(:large), class: "etalage_thumb_image img-responsive"%>
+								<%= image_tag picture.attachment.url(:large), class: "etalage_source_image img-responsive"%>
+							</li>
+							<% end %>
+						</ul>
+
+
+		<%=link_to "求帮忙", new_trip_product_path(@trip) %>

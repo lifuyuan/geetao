@@ -1,0 +1,52 @@
+<%= form_for([@product, @purchasing]) do |f| %>
+    <div class="row">
+      <%= f.label :期望到货时间 %><br>
+      <%= f.text_field :expect_time_start, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= f.label :期望到货时间 %><br>
+      <%= f.text_field :expect_time_end, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= f.label :酬金 %><br>
+      <%= f.text_field :remuneration, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= f.label :备注 %><br>
+      <%= f.text_field :memo, class: "form-control" %>
+    </div>
+    <div class="row">
+      <%= f.label :数量 %><br>
+      <%= f.text_field :quantity, class: "form-control" %>
+    </div>
+    <div class="row"> 
+      <%= f.submit '发布', class: "btn btn-block btn-primary" %>
+    </div>
+<% end %>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  jQuery(function(){
+    jQuery("#purchasing_expect_time_start").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请填写类型"
+    });
+    jQuery("#purchasing_expect_time_end").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入名称"
+    });
+    jQuery("#purchasing_remuneration").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请填写描述"
+    });
+    jQuery("#purchasing_memo").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请填写日期"
+    });
+    jQuery("#purchasing_quantity").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请填写日期"
+    });
+  });
+  /* ]]> */
+</script>

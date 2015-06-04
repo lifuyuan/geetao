@@ -1,0 +1,33 @@
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="login">
+        <div class="login-screen">
+          <div class="login-icon">
+            <%= image_tag "login/icon.png"%>
+            <h4><small>再次发送确认邮件</small></h4>
+          </div>
+
+          <div class="login-form">
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control login-field", placeholder: "电子邮箱" %>
+              <label class="login-field-icon fui-mail" for="user_email"></label>
+              <% if resource.errors.any? && resource.errors[:email].count > 0%>
+                <span class="ValidationErrors"><%= resource.errors[:email].first%></span>
+              <% end %>
+            </div>
+            <%= f.submit "重新发送", class: "btn btn-primary btn-lg btn-block" %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+<% end %>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  jQuery(function(){
+    jQuery("#user_email").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入您的email地址"
+    });
+  });
+  /* ]]> */
+</script>

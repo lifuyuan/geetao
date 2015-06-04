@@ -1,0 +1,33 @@
+zh:
+  date:
+    order:
+      - :year
+      - :month
+      - :day
+
+  errors:
+    format: "%{message}"
+
+    messages:
+      not_saved: "操作失败"
+      not_found: "没有找到"
+      already_confirmed: "已经确认"
+      not_locked: "没有锁定"
+
+  mongoid:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: '已经有其他用户用此email注册过！'
+              blank: '请输入email地址！'
+            password:
+              too_short: '密码至少需要８位！'
+              confirmation: '密码确认错误！'
+              blank: '密码不能为空'
+            name:
+              blank: '姓名或公司名称不能为空!'
+              taken: '该用户名已被他人使用!'
+            password_confirmation:
+              confirmation: '密码确认与密码不一致!'  

@@ -1,0 +1,77 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="login">
+        <div class="login-screen">
+          <div class="login-icon">
+            <%= image_tag "login/icon.png"%>
+            <h4>欢迎您 <small>注册帮淘</small></h4>
+          </div>
+
+          <div class="login-form">
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, class: "form-control login-field", placeholder: "电子邮箱" %>
+              <label class="login-field-icon fui-mail" for="user_email"></label>
+              <% if resource.errors.any? && resource.errors[:email].count > 0%>
+                <span class="ValidationErrors"><%= resource.errors[:email].first%></span>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :name, class: "form-control login-field", placeholder: "用户名" %>
+              <label class="login-field-icon fui-user" for="user_name"></label>
+              <% if resource.errors.any? && resource.errors[:name].count > 0%>
+                <span class="ValidationErrors"><%= resource.errors[:name].first%></span>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "off", class: "form-control login-field", placeholder: "密码，不少于8位" %>
+              <label class="login-field-icon fui-lock" for="user_password"></label>
+              <% if resource.errors.any? && resource.errors[:password].count > 0%>
+                <span class="ValidationErrors"><%= resource.errors[:password].first%></span>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control login-field", placeholder: "密码确认" %>
+              <label class="login-field-icon fui-lock" for="user_password_confirmation"></label>
+              <% if resource.errors.any? && resource.errors[:password_confirmation].count > 0%>
+                <span class="ValidationErrors"><%= resource.errors[:password_confirmation].first%></span>
+              <% end %>
+            </div>
+            <%= f.submit "注册", class: "btn btn-primary btn-lg btn-block" %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+<% end %>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  jQuery(function(){
+    jQuery("#user_email").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入您的email地址"
+    });
+    jQuery("#user_name").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入您的用户名"
+    });
+    jQuery("#user_password").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入您的密码"
+    });
+    jQuery("#user_password").validate({
+      expression: "if (VAL.length >= 8) return true; else return false;",
+      message: "密码长度不能少于8位"
+    });
+    jQuery("#user_password_confirmation").validate({
+      expression: "if (VAL) return true; else return false;",
+      message: "请输入您的密码确认"
+    });
+    jQuery("#user_password_confirmation").validate({
+      expression: "if (VAL==$('#user_password').val()) return true; else return false;",
+      message: "密码确认必须与密码一致"
+    });
+  });
+  /* ]]> */
+</script>

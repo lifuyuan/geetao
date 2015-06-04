@@ -1,0 +1,42 @@
+      <h4>选择代购请求</h4>
+      <div class="row">
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-8">
+          <% if @trip.purchasings.count > 0 %>
+          <%= form_tag("/trips/#{@trip.id}/update_application", :method => "post") do %>
+            <% i = 0 %>
+            <% @trip.purchasings.each do |purchasing| %>
+            <% if i!=@trip.purchasings.count && i%3 == 0 %>
+                <div class="row demo-tiles">
+              <% end %>
+                <div class="col-xs-4">
+                  <div class="tile">
+                    <%= image_tag purchasing.user.avatar_url(:medium) %>
+                    <h4><%= purchasing.user.name %></h4>
+                    <p><%= purchasing.item_name %></p>
+                    <p><%= purchasing.item_type %></p>
+                    <p>愿付酬金：<%= purchasing.remuneration %>人民币</p>
+                    <p>时间：从<%= purchasing.arrival_time_start %></p>
+                    <p>到<%= purchasing.arrival_time_end %></p>
+                    <p>货物描述：<%= purchasing.item_desc %></p>
+                    <label class="checkbox">
+                      <%= check_box_tag 'checkbox[]', purchasing.id %>
+                      选择TA
+                    </label>
+                  </div>
+                </div>
+              <% if i%3 == 2 || i == @trip.purchasings.count-1 %>
+                </div>
+              <% end %>
+              <% i = i + 1 %>
+            <% end %>
+            <div class="form-group" style="margin-left: 30px;">
+              <%=submit_tag( "提交" ,class: "btn btn-primary", style: "width: 150px;")%>
+            </div>
+          <% end %>
+          <% else %>
+            <p>暂时还没有代购请求，请您耐心等待</p>
+          <% end %>
+        </div>
+      </div>

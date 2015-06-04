@@ -1,0 +1,13 @@
+<%= div_for purchasing do %>
+<div class="sidebar-module sidebar-module-inset">
+  <span class="fui-user">
+  	<%=purchasing.user.name%>  
+  	<% if purchasing.user == current_user && purchasing.status == "created" %>
+      <%= link_to '删除', [purchasing.trip, purchasing], method: :delete, data: { confirm: 'Are you sure?' }, class: "like pull-right" %>
+    <% elsif purchasing.status != "created" %>
+      <%= {"selected"=>"已被选择", "unselected"=>"未被选择"}[purchasing.status]%>
+    <% end %>
+  </span>
+  <p><%=purchasing.item_name%></p>
+</div>
+<% end %>

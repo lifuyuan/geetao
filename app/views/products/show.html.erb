@@ -1,0 +1,29 @@
+<script>
+			jQuery(document).ready(function($){
+
+				$('#etalage').etalage({
+					thumb_image_width: 300,
+					thumb_image_height: 300,
+					source_image_width: 600,
+					source_image_height: 600,
+					show_hint: false
+				});
+
+			});
+
+		</script>
+
+
+						
+
+		   <ul id="etalage">
+						  <% @product.pictures.each do |picture| %>
+							<li>
+								<%= image_tag picture.attachment.url(:large), class: "etalage_thumb_image img-responsive"%>
+								<%= image_tag picture.attachment.url(:large), class: "etalage_source_image img-responsive"%>
+							</li>
+							<% end %>
+						</ul>
+
+
+		<%=link_to "求帮忙", new_product_purchasing_path(@product) %>

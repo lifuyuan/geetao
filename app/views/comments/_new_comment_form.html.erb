@@ -1,0 +1,13 @@
+<%= form_for(Comment.new(:commentable_type => "#{commentable.class.name}", :commentable_id => commentable.id), :remote => true) do |f| %>
+  <%= f.hidden_field :commentable_type %>
+  <%= f.hidden_field :commentable_id %>
+<div class="control-group comment-box">
+  <label class="control-label"><span class="fui-user"></span> 发表评论</label>
+  <div class="controls">
+    <div class="textarea form-group project-form">
+      <%= f.text_area :content, class: "comment form-control" %>
+    </div>
+  </div>
+  <%= f.submit "提交", :disable_with => "正在发表", class: "btn btn-primary pull-right", style: "width: 140px;" %>
+</div>
+<% end %>

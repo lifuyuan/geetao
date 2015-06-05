@@ -9,4 +9,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.enabled = true
 Rails.application.config.assets.paths << "#{Rails.root}/vendor/assets/fonts" 
 
-Rails.application.config.assets.precompile += %w( html5shiv.js respond.min.js LR.png )
+Rails.application.config.assets.precompile += %w( html5shiv.js respond.min.js *.png *.gif *.jpg)

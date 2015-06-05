@@ -19,3 +19,10 @@
 //= require jquery.validate
 //= require jquery.validation.functions
 //= require responsiveslides.min
+//= require classie
+//= require easing
+//= require easyResponsiveTabs
+//= require ipresenter.packed
+//= require modernizr.custom
+//= require move-top
+//= require owl.carousel

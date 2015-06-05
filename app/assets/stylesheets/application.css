@@ -14,4 +14,10 @@
  *= require_self
  *= require etalage
  *= require sliders
+ *= require bootstrap
+ *= require component
+ *= require easy-responsive-tabs
+ *= require ipresenter
+ *= require owl.carousel
+ *= require style
  */

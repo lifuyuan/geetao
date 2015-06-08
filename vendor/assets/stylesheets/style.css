@@ -2769,3 +2769,46 @@ ul.women_pagenation li.active a, ul.women_pagenation li a:hover {
 		padding: 6px 10px;
 	}
 }
+
+
+
+/*----*/
+.footer{
+	background: #202628;
+	padding: 2em 0 1em;
+}
+.footer p{
+	margin:1em 0;
+	font-size: 0.9em;
+	color:#a0a0a0;
+}
+p.footer-grid a{
+	color:#fff;	
+}
+p.footer-grid a:hover{
+	color:#a0a0a0;
+}
+.footer a{
+	text-decoration:none;
+}
+.class-footer{
+	float:left;
+	padding:10px 0;
+}
+.footer-left{
+	float:right;
+}
+.class-footer ul li{
+	display:inline-block;
+}
+.class-footer ul li label{
+	color:#a0a0a0;
+}
+.class-footer ul li a{
+	text-decoration:none;
+	color:#a0a0a0;
+	font-size:0.87em;	
+}
+.class-footer ul li a:hover{
+	color:#fff;
+}

@@ -18,6 +18,138 @@
 		</div>
 	</div>
 <% end %>
+<!-- products-section-starts -->
+<div class="products-section">
+	<div class="container">
+	  <div class="col-md-9">
+			<div class="product-section-head-text">
+			  <h3>热门 <span>行程</span></h3>
+			</div>
+			<div class="bottom-grids collections">
+				<div class="bottom-grids-left">
+					<div class="f-products">
+						<!-- sreen-gallery-cursual -->
+						<div class="sreen-gallery-cursual">
+							<!-- start content_slider -->
+							<div id="owl-demo" class="owl-carousel text-center">
+						    <div class="item">
+						      <div onclick="location.href='single.html';" class="product-grid">
+										<div class="product-pic">
+											<img src="images/p1.jpg" title="Woman's T - Shirt" />
+										</div>
+										<div class="product-pic-info">
+											<h4><a href="#">Woman's T - Shirt</a></h4>
+											<div class="product-pic-info-price-cart">
+												<div class="product-pic-info-price">
+													<span>$129</span>
+												</div>
+												<div class="product-pic-info-cart">
+													<a class="p-btn" href="single.html">Add to Cart</a>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+										</div>
+									</div>
+						    </div>
+					    </div>
+							<!--sreen-gallery-cursual -->
+						</div>
+					</div>
+					<div class="d-products product-section-head-text">
+				    <h3>最新发布 <span> 行程</span></h3>
+						<!-- sreen-gallery-cursual -->
+						<div class="sreen-gallery-cursual">
+							<!-- start content_slider -->
+						  <div id="owl-demo1" class="owl-carousel text-center">
+					      <div class="item">
+					        <div onclick="location.href='single.html';" class="product-grid">
+										<div class="product-pic">
+											<img src="images/p4.jpg" title="Woman's T - Shirt" />
+										</div>
+										<div class="product-pic-info">
+											<h4><a href="#">Woman's T - Shirt</a></h4>
+											<div class="product-pic-info-price-cart">
+												<div class="product-pic-info-price">
+													<span>$35.99</span>
+													<label> </label>
+												</div>
+												<div class="product-pic-info-cart">
+													<a class="p-btn" href="single.html">Add to Cart</a>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+										</div>
+									</div>
+					      </div>
+				      </div>
+						<!--sreen-gallery-cursual-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="sellers">
+				<h4>热带货物</h4>
+				<div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid_index">
+									<ul>
+					  <li>
+							<a class="cbp-vm-image" href="single.html">
+							 <div class="view view-first">
+					   		  <div class="inner_content clearfix">
+								<div class="product_image">
+									<img src="images/bb2.jpg" class="img-responsive" alt=""/>
+									<div class="mask">
+			                       		<div class="info">Quick View</div>
+					                  </div>
+									<div class="product_container">
+									   <div class="cart-left">
+										 <p class="title">Lorem Ipsum 2014</p>
+									   </div>
+									   <div class="pricey">$99.00</div>
+									   <div class="clearfix"></div>
+								     </div>		
+								  </div>
+			                     </div>
+		                      </div>
+		                    </a>
+							<div class="cbp-vm-details">
+								Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
+							</div>
+							<a class="cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
+						</li>
+											  <li>
+							<a class="cbp-vm-image" href="single.html">
+							 <div class="view view-first">
+					   		  <div class="inner_content clearfix">
+								<div class="product_image">
+									<img src="images/bb2.jpg" class="img-responsive" alt=""/>
+									<div class="mask">
+			                       		<div class="info">Quick View</div>
+					                  </div>
+									<div class="product_container">
+									   <div class="cart-left">
+										 <p class="title">Lorem Ipsum 2014</p>
+									   </div>
+									   <div class="pricey">$99.00</div>
+									   <div class="clearfix"></div>
+								     </div>		
+								  </div>
+			                     </div>
+		                      </div>
+		                    </a>
+							<div class="cbp-vm-details">
+								Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
+							</div>
+							<a class="cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
+						</li>
+						</ul>
+						</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- products-section-ends -->
 
 <script>
 	$(document).ready(function(){
@@ -28,4 +160,24 @@
 			controlNavNextPrev: false
 		});
 	});
+	$(document).ready(function() {
+    $("#owl-demo").owlCarousel({
+      items : 3,
+      lazyLoad : true,
+      autoPlay : true,
+      navigation : true,
+      navigationText :  false,
+      pagination : false,
+    });
+  });
+  $(document).ready(function() {
+    $("#owl-demo1").owlCarousel({
+      items : 3,
+      lazyLoad : true,
+      autoPlay : true,
+      navigation : true,
+      navigationText :  false,
+      pagination : false,
+    });
+  });
 </script>

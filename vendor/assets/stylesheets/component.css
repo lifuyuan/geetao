@@ -288,3 +288,32 @@ width: 46%;
 }
 }
 
+
+
+
+
+
+/* Large grid view */
+.cbp-vm-view-grid_index ul li {
+	text-align: center;
+	margin: 20px 0 0;
+	display: inline-block;
+	vertical-align: top;
+	padding:5px;
+}
+.cbp-vm-view-grid_index .cbp-vm-title {
+	font-size: 2em;
+}
+.cbp-vm-view-grid_index .cbp-vm-details {
+	max-width: 300px;
+	min-height: 25px;
+	margin: 0 auto;
+	color: #999;
+	font-size: 0.9em;
+	margin-top: 1em;
+} 
+.cbp-vm-view-grid_index .cbp-vm-price {
+	margin: 10px 0;
+	font-size: 1.5em;
+}
+

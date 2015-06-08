@@ -51,7 +51,7 @@ label{
 /*-----start-header----*/
 
 .user-desc {
-	background: #2a2b2c;
+	background: #1d2124;
 	padding:0.5em 0;
 }
 .user-desc ul li a {
@@ -79,6 +79,13 @@ i.favorite{
 	width:32px;
 	height:32px;
 	background:url('/assets/favorite.png') no-repeat 0px 0px;
+	display:inline-block;
+	vertical-align: middle;
+}
+i.travel{
+	width:32px;
+	height:32px;
+	background:url('/assets/travel.png') no-repeat 0px 0px;
 	display:inline-block;
 	vertical-align: middle;
 }

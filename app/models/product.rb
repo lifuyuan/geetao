@@ -15,4 +15,9 @@ class Product
   field :price, type: BigDecimal #预计单价
   field :color, type: String #颜色
   field :size, type: String #商品尺寸，规格及大小
+  field :pur_num, type: BigDecimal, default: 0
+
+  before_create do
+    self.expiration_date = self.trip.expiration_date
+  end
 end

@@ -21,4 +21,9 @@ class Purchasing
     self.user_id = self.product.user_id if self.product.purchasings.count == 0
     self.trip_id = self.product.trip_id
   end
+
+  after_create do
+    self.trip.update_attributes(pur_num: self.trip.pur_num+1)
+    self.product.update_attributes(pur_num: self.product.pur_num+1)
+  end
 end

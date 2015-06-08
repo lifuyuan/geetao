@@ -73,7 +73,7 @@ background: url("/assets/grid_view.png")no-repeat;
 	background:#f356b3;
 	padding: 8px 10px;
 	border-radius: 2px;
-	margin: 20px 0 0;
+	margin: 5px 0 0;
 	display: inline-block;
 	transition: background 0.2s;
 	font-size: 0.9em;
@@ -297,7 +297,7 @@ width: 46%;
 .cbp-vm-view-grid_index ul li {
 	text-align: center;
 	margin: 20px 0 0;
-	display: inline-block;
+	/*display: inline-block;*/
 	vertical-align: top;
 	padding:5px;
 }
@@ -307,7 +307,7 @@ width: 46%;
 .cbp-vm-view-grid_index .cbp-vm-details {
 	max-width: 300px;
 	min-height: 25px;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	color: #999;
 	font-size: 0.9em;
 	margin-top: 1em;

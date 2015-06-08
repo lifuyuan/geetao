@@ -9,6 +9,7 @@ class Trip
   field :expiration_date, type: Date #下单截止日期
   field :trip_desc, type: String #行程描述
   field :status, type: String, default: 'created'
+  field :pur_num, type: BigDecimal, default: 0
 
   belongs_to :user
   embeds_many :pictures, :cascade_callbacks => true

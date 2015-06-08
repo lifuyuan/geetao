@@ -32,25 +32,27 @@
 						<div class="sreen-gallery-cursual">
 							<!-- start content_slider -->
 							<div id="owl-demo" class="owl-carousel text-center">
+							  <% Trip.where(:expiration_date.gt => Time.now).desc(:pur_num).limit(5).each do |trip|%>
 						    <div class="item">
-						      <div onclick="location.href='single.html';" class="product-grid">
+						      <div onclick="location.href='/trips/<%=trip.id%>';" class="product-grid">
 										<div class="product-pic">
-											<img src="images/p1.jpg" title="Woman's T - Shirt" />
+											<%= image_tag trip.pictures.first.attachment.url(:large), title: trip.trip_name %>
 										</div>
 										<div class="product-pic-info">
-											<h4><a href="#">Woman's T - Shirt</a></h4>
+											<h4><a href="/trips/<%=trip.id%>" style="color: #999;">下单截止时间：<%=trip.expiration_date.strftime("%Y-%m-%d")%></a></h4>
 											<div class="product-pic-info-price-cart">
 												<div class="product-pic-info-price">
-													<span>$129</span>
+													<span><%=trip.trip_name%></span>
 												</div>
 												<div class="product-pic-info-cart">
-													<a class="p-btn" href="single.html">Add to Cart</a>
+													<a class="p-btn" href="/trips/<%=trip.id%>">查看详情</a>
 												</div>
 												<div class="clearfix"> </div>
 											</div>
 										</div>
 									</div>
 						    </div>
+						    <% end %>
 					    </div>
 							<!--sreen-gallery-cursual -->
 						</div>
@@ -61,26 +63,28 @@
 						<div class="sreen-gallery-cursual">
 							<!-- start content_slider -->
 						  <div id="owl-demo1" class="owl-carousel text-center">
+						    <% Trip.where(:expiration_date.gt => Time.now).desc(:created_at).limit(5).each do |trip|%>
 					      <div class="item">
-					        <div onclick="location.href='single.html';" class="product-grid">
+					        <div onclick="location.href='/trips/<%=trip.id%>';" class="product-grid">
 										<div class="product-pic">
-											<img src="images/p4.jpg" title="Woman's T - Shirt" />
+											<%= image_tag trip.pictures.first.attachment.url(:large), title: trip.trip_name %>
 										</div>
 										<div class="product-pic-info">
-											<h4><a href="#">Woman's T - Shirt</a></h4>
+											<h4><a href="/trips/<%=trip.id%>" style="color: #999;">下单截止时间：<%=trip.expiration_date.strftime("%Y-%m-%d")%></a></h4>
 											<div class="product-pic-info-price-cart">
 												<div class="product-pic-info-price">
-													<span>$35.99</span>
+													<span><%=trip.trip_name%></span>
 													<label> </label>
 												</div>
 												<div class="product-pic-info-cart">
-													<a class="p-btn" href="single.html">Add to Cart</a>
+													<a class="p-btn" href="/trips/<%=trip.id%>">查看详情</a>
 												</div>
 												<div class="clearfix"> </div>
 											</div>
 										</div>
 									</div>
 					      </div>
+					      <% end %>
 				      </div>
 						<!--sreen-gallery-cursual-->
 						</div>
@@ -92,59 +96,36 @@
 			<div class="sellers">
 				<h4>热带货物</h4>
 				<div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid_index">
-									<ul>
-					  <li>
-							<a class="cbp-vm-image" href="single.html">
-							 <div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/bb2.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Lorem Ipsum 2014</p>
-									   </div>
-									   <div class="pricey">$99.00</div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-		                    </a>
-							<div class="cbp-vm-details">
-								Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
-						</li>
-											  <li>
-							<a class="cbp-vm-image" href="single.html">
-							 <div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/bb2.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Lorem Ipsum 2014</p>
-									   </div>
-									   <div class="pricey">$99.00</div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-		                    </a>
-							<div class="cbp-vm-details">
-								Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
-						</li>
+						<ul>
+						  <% Product.where(:expiration_date.gt => Time.now).desc(:pur_num).limit(3).each do |product|%>
+					  	<li>
+								<a class="cbp-vm-image" href="/products/<%=product.id%>/purchasings/new">
+								 	<div class="view view-first">
+						   			<div class="inner_content clearfix">
+											<div class="product_image">
+												<%= image_tag product.pictures.first.attachment.url(:large), class: "img-responsive" %>
+												<div class="mask">
+				                  <div class="info">Quick View</div>
+						            </div>
+												<div class="product_container">
+										   		<div class="cart-left">
+											 			<p class="title"><%=product.brand%><%=product.name%></p>
+										   		</div>
+										   		<div class="pricey"><%=product.price%></div>
+										   		<div class="clearfix"></div>
+									     </div>		
+									  	</div>
+				            </div>
+			            </div>
+		            </a>
+								<div class="cbp-vm-details">
+									下单截止时间：<%=product.expiration_date.strftime("%Y-%m-%d")%>
+								</div>
+								<a class="cbp-vm-icon cbp-vm-add" href="/products/<%=product.id%>/purchasings/new">一起带</a>
+							</li>
+							<% end %>
 						</ul>
-						</div>
+					</div>
 			</div>
 		</div>
 	</div>
